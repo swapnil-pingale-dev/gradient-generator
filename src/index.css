@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+.section {
+  @apply max-w-7xl w-full mx-auto;
+}
+
+.btn-animation {
+  @apply active:scale-95 transition-transform duration-100 ease-in;
+}
