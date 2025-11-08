@@ -20,7 +20,7 @@ export default function ActionsMenu({ setGradientTypefn, setColorCountfn, onGene
   };
 
   return (
-    <div className="section bg-transparent sticky top-6 my-15 flex justify-center">
+    <div className="section bg-transparent md:sticky top-6 my-15 flex justify-center">
       <form className="max-w-2xl w-full flex flex-wrap md:flex-nowrap gap-4 bg-neutral-50/50 dark:bg-neutral-800/50 backdrop-blur-lg border border-neutral-100 dark:border-neutral-700 p-5 rounded-2xl md:rounded-full" ref={form} onSubmit={handleFormSubmit}>
   
           <input
