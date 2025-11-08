@@ -9,6 +9,23 @@ const App = () => {
   const [gradientType, setGradientType] = useState("linear-gradient");
   const [colorCount, setColorCount] = useState(2);
   const [gradientCards, setGradientCards] = useState([]);
+  const [isCopied, setIsCopied] = useState(null)
+  const [isDark, setIsDark] = useState((localStorage.getItem("theme")) || "light")
+
+
+
+  useEffect(() => {
+    let timerId;
+
+    if(isCopied !== null){
+      timerId = setTimeout(() => {
+      setIsCopied(null)
+    }, 3000)
+    }
+
+    return () => {clearTimeout(timerId)}
+
+  })
 
 
 
@@ -66,21 +83,25 @@ const App = () => {
  
 
   return (
-    <main className="px-5">
-      <Header />
+    <main className="px-5 dark:bg-neutral-900 min-h-dvh pb-20">
+      <Header isDark={isDark} setIsDark={setIsDark} />
       <ActionsMenu
         setGradientTypefn={setGradientType}
         setColorCountfn={setColorCount}
         onGenerate={handleGenerate}
-        gradientCards={gradientCards}
+        // gradientCards={gradientCards}
+        gradientType={gradientType}
       />
-      <div className="section grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-5 mb-20 ">
+      <div className="section grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-5 ">
         {gradientCards.map((card, index) => (
           <ColorCard
             key={index}
+            cardId={index}
             type={card.gradientType}
             direction={card.direction}
             colors={card.colors}
+            isCopied = {isCopied} 
+            setIsCopied = {setIsCopied}
           />
         ))}
       </div>

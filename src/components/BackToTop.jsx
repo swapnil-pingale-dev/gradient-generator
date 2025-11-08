@@ -29,9 +29,9 @@ export default function BackToTop() {
       onClick={goToTop}
       className={`${
         isVisible ? "fixed bottom-5 right-5" : "hidden"
-      } bg-neutral-800 size-12 rounded-full btn-animation cursor-pointer`}
+      } bg-neutral-900/80 dark:bg-neutral-50/80 backdrop-blur-lg size-12 rounded-full btn-animation cursor-pointer`}
     >
-      <BackToTopSvg className="text-neutral-100 m-auto" />
+      <BackToTopSvg className="text-neutral-100 dark:text-neutral-900  m-auto" />
     </button>
   );
 }
