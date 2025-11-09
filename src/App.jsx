@@ -28,14 +28,12 @@ const App = () => {
   })
 
 
-
-
   // Generate gradients function
   function generateGradientCards(type, count) {
 
-    function generateOklch(count) {
+    function generateOklch() {
        return Array.from( type === 'solid'? {length:1} : {length:count}, () => {
-        const l = Math.floor(Math.random() * 100 + 1);
+        const l = Math.floor(Math.random() * 75 + 20);
         const c = Number((Math.random() * 0.3 + 0.1).toFixed(1));
         const h = Math.floor(Math.random() * 360 + 1);
 
@@ -66,7 +64,7 @@ const App = () => {
       gradientType: type,
       colorCount: count,
       direction: generateDirection(),
-      colors: generateOklch(count),
+      colors: generateOklch(),
     }));
   }
 
