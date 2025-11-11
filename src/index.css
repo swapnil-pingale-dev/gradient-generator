@@ -11,27 +11,10 @@
   @apply active:scale-95 transition-transform duration-100 ease-in;
 }
 
-@keyframes toast {
-  0% {
-    transform: translate(-50%, -150%);
-    opacity: 0;
-  }
-  10% {
-    transform: translate(-50%, 50%);
-    opacity: 1;
-  }
-  80% {
-    transform: translate(-50%, 50%);
-    opacity: 1;
-  }
-  100% {
-    transform: translate(-50%, -150%);
-    opacity: 0;
-  }
+.generate-btn-animation {
+  @apply active:scale-[0.97] transition-transform duration-100 ease-in;
 }
 
-@layer utilities {
-  .animate-toast {
-    animation: toast 3s ease-in-out forwards;
-  }
+body{
+  overflow-y: scroll;
 }

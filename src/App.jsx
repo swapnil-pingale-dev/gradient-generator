@@ -3,6 +3,7 @@ import ColorCard from "./components/ColorCard";
 import Header from "./components/Header";
 import ActionsMenu from "./components/ActionsMenu";
 import BackToTop from "./components/BackToTop";
+import Footer from "./components/Footer";
 
 
 const App = () => {
@@ -11,7 +12,7 @@ const App = () => {
   const [gradientCards, setGradientCards] = useState([]);
   const [isCopied, setIsCopied] = useState(null)
   const [isDark, setIsDark] = useState((localStorage.getItem("theme")) || "light")
-
+  const [isProfileClicked, setIsProfileClicked] = useState(false)
 
 
   useEffect(() => {
@@ -33,7 +34,7 @@ const App = () => {
 
     function generateOklch() {
        return Array.from( type === 'solid'? {length:1} : {length:count}, () => {
-        const l = Math.floor(Math.random() * 75 + 20);
+        const l = Math.floor(Math.random() * 85 + 15);
         const c = Number((Math.random() * 0.3 + 0.1).toFixed(1));
         const h = Math.floor(Math.random() * 360 + 1);
 
@@ -81,14 +82,15 @@ const App = () => {
  
 
   return (
-    <main className="px-5 dark:bg-neutral-900 min-h-dvh pb-20">
-      <Header isDark={isDark} setIsDark={setIsDark} />
+    <>
+    <Header isDark={isDark} setIsDark={setIsDark} isProfileClicked={isProfileClicked} setIsProfileClicked={setIsProfileClicked} />
+    <main className="px-5 dark:bg-neutral-900 pb-20">  
       <ActionsMenu
         setGradientTypefn={setGradientType}
         setColorCountfn={setColorCount}
         onGenerate={handleGenerate}
-        // gradientCards={gradientCards}
         gradientType={gradientType}
+        colorCount={colorCount}
       />
       <div className="section grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-5 ">
         {gradientCards.map((card, index) => (
@@ -103,8 +105,10 @@ const App = () => {
           />
         ))}
       </div>
-      <BackToTop />
     </main>
+    <Footer/>
+     <BackToTop />
+    </>
   );
 };
 
