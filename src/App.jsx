@@ -83,8 +83,8 @@ const App = () => {
 
   return (
     <>
-    <Header isDark={isDark} setIsDark={setIsDark} isProfileClicked={isProfileClicked} setIsProfileClicked={setIsProfileClicked} />
-    <main className="px-5 dark:bg-neutral-900 pb-20">  
+      <Header isDark={isDark} setIsDark={setIsDark} isProfileClicked={isProfileClicked} setIsProfileClicked={setIsProfileClicked} />
+    <main className="px-5 dark:bg-neutral-900 pb-10">  
       <ActionsMenu
         setGradientTypefn={setGradientType}
         setColorCountfn={setColorCount}

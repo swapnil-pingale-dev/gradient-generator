@@ -18,3 +18,21 @@
 body{
   overflow-y: scroll;
 }
+
+.open-social {
+animation-name: open-social-profile-animation;
+animation-duration: 0.3s;
+animation-timing-function: ease;
+animation-timeline: auto
+}
+
+@keyframes open-social-profile-animation {
+  from{
+    scale: 0;
+    transform-origin: 50% 0;
+  }
+  to{
+    /* transform-origin: 50% 50%; */
+    scale: 1;
+  }
+}
